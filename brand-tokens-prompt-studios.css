@@ -1,0 +1,256 @@
+/* ============================================
+   BRAND TOKENS — PROMPT STUDIOS
+   SOCIAL MEDIA DESIGN SYSTEM
+   Always use these styles. Never substitute.
+   ============================================ */
+
+
+/* --------------------------------------------
+   GOOGLE FONTS IMPORTS — Must remain at top
+   -------------------------------------------- */
+
+/* Body & Section Header — Poppins Light */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+/* Logo Wordmark — DM Serif Display */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+
+
+/* --------------------------------------------
+   FONTS — @font-face Declarations
+   -------------------------------------------- */
+
+/* Heading & Accent — Bebas Neue Regular */
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('https://cdn.jsdelivr.net/gh/sisi-prompt/fonts@v1/BebasNeue-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Sub-heading — Miller Display Light Italic — ALWAYS italic, never normal */
+@font-face {
+  font-family: 'lust for good logo type';
+  src: url('https://cdn.jsdelivr.net/gh/sisi-prompt/fonts@v1/Miller-Display-Light-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Normal-blocking rule — forces browser to use italic even when normal is requested */
+@font-face {
+  font-family: 'lust for good logo type';
+  src: url('https://cdn.jsdelivr.net/gh/sisi-prompt/fonts@v1/Miller-Display-Light-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* --------------------------------------------
+   DESIGN TOKENS — CSS Variables
+   -------------------------------------------- */
+
+:root {
+
+  /* --- FONT FAMILIES --- */
+  --font-heading:    'Bebas Neue', sans-serif;
+  --font-subheading: 'lust for good logo type', serif;
+  --font-body:       'Poppins', sans-serif;
+  --font-section:    'Poppins', sans-serif;
+  --font-accent:     'Bebas Neue', sans-serif;
+  --font-logo:       'DM Serif Display', serif;  /* Wordmark only — no other use */
+
+  /* --- FONT WEIGHTS --- */
+  --font-weight-heading:    400;  /* Bebas Neue is a single-weight font */
+  --font-weight-subheading: normal;
+  --font-weight-body:       300;  /* Poppins Light */
+  --font-weight-section:    400;
+  --font-weight-accent:     400;  /* Bebas Neue is a single-weight font */
+
+  /* --- FONT STYLES --- */
+  --font-style-heading:    normal;
+  --font-style-subheading: italic;  /* ALWAYS italic — never normal */
+  --font-style-body:       normal;
+  --font-style-section:    normal;
+  --font-style-accent:     normal;
+
+  /* --- LETTER SPACING --- */
+  --letter-spacing-heading:    0px;
+  --letter-spacing-subheading: 0.0em;
+  --letter-spacing-body:       0.05em;
+  --letter-spacing-section:    0.05em;
+  --letter-spacing-accent:     0.05em;
+
+  /* --- TEXT TRANSFORM --- */
+  --text-transform-heading:    uppercase;
+  --text-transform-subheading: none;
+  --text-transform-body:       none;
+  --text-transform-section:    uppercase;
+  --text-transform-accent:     uppercase;
+
+  /* --- LINE HEIGHT --- */
+  --line-height-heading:    0.9em;
+  --line-height-subheading: 0.8em;
+  --line-height-body:       1.5em;
+  --line-height-section:    1.9rem;
+  --line-height-accent:     1.2em;
+
+  /* --- ELEMENT SPACING — bottom margin for subheading and accent only --- */
+  --margin-subheading:  8px;  /* tighter bottom margin for subheading */
+  --margin-accent:      8px;  /* tighter bottom margin for accent / buttons */
+
+  /* --- FONT SIZES ---
+     No global minimum — Claude scales freely EXCEPT:
+       body text — always exactly 16px
+       accent     — minimum 20px
+     See override rules in the font size minimums section.
+  */
+  --font-size-body:        16px;  /* ALWAYS exactly 16px — fixed, never scaled */
+  --font-size-accent:      20px;  /* minimum 20px — may scale up, never below */
+  --font-size-section:     44px;
+  --font-size-subheading:  52px;
+  --font-size-heading:     80px;  /* minimum 72px — never below */
+  --font-size-heading-min: 72px;  /* hard floor for heading text */
+
+  /* --- COLORS --- */
+  --color-warm-white: #E6E2D3;  /* Warm White */
+  --color-light-gray: #EEEEEE;  /* Light Gray */
+  --color-white:      #ffffff;  /* White */
+  --color-black:      #111111;  /* Black */
+
+  /* --- SPACING & PADDING --- */
+  --padding-post: 80px;   /* Safe inner margin for all posts — never place content outside this boundary */
+  --padding-card: 60px;   /* Inner breathing room for cards and content blocks */
+
+  /* --- BORDER RADIUS --- */
+  /* This brand is editorial and high-contrast — sharp edges are always the default */
+  --radius-none:  0px;    /* Sharp edges — brand default, always use this */
+  --radius-md:    16px;   /* Available but use sparingly and only when explicitly needed */
+
+}
+
+/* Tighter bottom margin for subheading and accent */
+.subheading              { margin-bottom: var(--margin-subheading); }  /* 8px */
+.accent, button, .btn    { margin-bottom: var(--margin-accent); }      /* 8px */
+
+
+/* --------------------------------------------
+   COLOR COMBINATIONS — Always follow these pairings
+   -------------------------------------------- */
+
+/*
+  bg: #111111  ->  text: #ffffff or #E6E2D3 or #EEEEEE
+  bg: #ffffff  ->  text: #111111
+  bg: #E6E2D3  ->  text: #111111
+  bg: #EEEEEE  ->  text: #111111
+*/
+
+.bg-black      { background-color: #111111; color: #ffffff; }
+.bg-white      { background-color: #ffffff; color: #111111; }
+.bg-warm-white { background-color: #E6E2D3; color: #111111; }
+.bg-light-gray { background-color: #EEEEEE; color: #111111; }
+
+
+/* --------------------------------------------
+   FONT SIZE MINIMUMS — body and accent only
+   -------------------------------------------- */
+
+/* Body — always exactly 16px, no scaling */
+.body-text,
+p {
+  font-size: 16px !important;
+}
+
+/* Accent — minimum 20px, may scale up freely */
+.accent,
+button,
+.btn {
+  font-size: max(20px, var(--font-size-accent)) !important;
+}
+
+
+/* --------------------------------------------
+   LOGO RULE — Mandatory, cannot be overridden
+   -------------------------------------------- */
+
+/*
+  The brand wordmark is the text "prompt" — always lowercase, never uppercase.
+  Font: DM Serif Display — loaded via Google Fonts above.
+  Style: normal (never italic).
+  Weight: normal (400).
+  The logo may only appear as this wordmark text element.
+  Never substitute another font for the logo.
+  Never apply text-transform, italic, bold, or any other
+  style variation to the wordmark under any circumstance.
+*/
+
+.logo {
+  font-family: var(--font-logo);  /* DM Serif Display */
+  font-weight: 400;
+  font-style: normal;             /* NEVER italic */
+  text-transform: none;           /* NEVER uppercase — always lowercase */
+  letter-spacing: 0;
+}
+
+/* The logo text content must always be set as lowercase in the HTML:
+   <span class="logo">prompt</span>
+   Never use "Prompt", "PROMPT", or any other casing.        */
+
+
+/* --------------------------------------------
+   TYPOGRAPHY ROLES — Ready-to-use classes
+   -------------------------------------------- */
+
+.heading {
+  font-family: var(--font-heading);                                       /* Bebas Neue */
+  font-size: max(var(--font-size-heading-min), var(--font-size-heading)); /* never below 72px */
+  font-weight: var(--font-weight-heading);
+  font-style: var(--font-style-heading);
+  letter-spacing: var(--letter-spacing-heading);
+  text-transform: var(--text-transform-heading);
+  line-height: var(--line-height-heading);
+}
+
+.subheading {
+  font-family: var(--font-subheading);              /* Miller Display Light Italic */
+  font-size: var(--font-size-subheading);
+  font-weight: var(--font-weight-subheading);
+  font-style: italic;                               /* Explicitly hardcoded — always italic, never normal */
+  letter-spacing: var(--letter-spacing-subheading); /* 0.0em */
+  text-transform: var(--text-transform-subheading);
+  line-height: var(--line-height-subheading);        /* 0.8em */
+  margin-bottom: var(--margin-subheading);           /* 8px */
+}
+
+.body-text {
+  font-family: var(--font-body);
+  font-size: 16px;                                  /* ALWAYS exactly 16px */
+  font-weight: 300;                                 /* Poppins Light */
+  font-style: normal;
+  letter-spacing: var(--letter-spacing-body);       /* 0.05em */
+  text-transform: var(--text-transform-body);
+  line-height: var(--line-height-body);
+}
+
+.section-header {
+  font-family: var(--font-section);
+  font-size: var(--font-size-section);
+  font-weight: var(--font-weight-section);
+  font-style: var(--font-style-section);
+  letter-spacing: var(--letter-spacing-section);
+  text-transform: var(--text-transform-section);
+  line-height: var(--line-height-section);
+}
+
+.accent, button, .btn {
+  font-family: var(--font-accent);                  /* Bebas Neue */
+  font-size: max(20px, var(--font-size-accent));    /* minimum 20px */
+  font-weight: var(--font-weight-accent);
+  font-style: var(--font-style-accent);
+  letter-spacing: var(--letter-spacing-accent);     /* 0.05em */
+  text-transform: var(--text-transform-accent);
+  line-height: var(--line-height-accent);
+  margin-bottom: var(--margin-accent);              /* 8px */
+}
